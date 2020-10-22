@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/status_background"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical">
+
+            <!-- 这个控件还能往里面插入布局，假如此时功能，满足不了需求时，可以自定义布局-->
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.youth.banner.Banner
+                        android:id="@+id/banner"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:background="@color/line"
+                        app:layout_scrollFlags="scroll|snap" />
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+
+                <com.scwang.smart.refresh.layout.SmartRefreshLayout
+                    android:id="@+id/smartRefreshLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    app:srlEnableAutoLoadMore="false"
+                    app:srlEnableLoadMoreWhenContentNotFull="true">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clipToPadding="false"
+                        android:overScrollMode="never"
+                        android:paddingBottom="11dp"
+                        android:paddingTop="11dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+            <com.rsw.mvvmdemo.customview.LeoTitleBar
+                android:id="@+id/leoTitleBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hl_background="@color/status_background"
+                app:hl_leftBtnDrawable="@drawable/btn_menu_normal"
+                app:hl_rightBtnDrawable="@drawable/btn_search_normal"
+                app:hl_textTitle="玩安卓"
+                app:hl_textTitleColor="#fff" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/txt_test"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/me" />
+
+                <TextView
+                    android:id="@+id/txt_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/dp_20"
+                    android:text="leo"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/txt_collect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:drawableLeft="@drawable/ic_menu_collect"
+                android:drawablePadding="7dp"
+                android:gravity="center_vertical"
+                android:onClick="@{onclickListener}"
+                android:padding="15dp"
+                android:text="@string/myCollect"
+                android:textSize="15dp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/line" />
+
+            <TextView
+                android:id="@+id/txt_loginOut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:drawableLeft="@drawable/ic_menu_about"
+                android:drawablePadding="7dp"
+                android:gravity="center_vertical"
+                android:onClick="@{onclickListener}"
+                android:padding="15dp"
+                android:text="@string/logOut"
+                android:textSize="15dp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/line" />
+
+        </LinearLayout>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+    <data>
+
+        <variable
+            name="onclickListener"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+</layout>

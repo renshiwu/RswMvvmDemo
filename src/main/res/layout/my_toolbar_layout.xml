@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/leoBar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/main_color_bar"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/linear_"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/bar_right_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/selector_titlemenu"
+                    android:clickable="true"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:id="@+id/image_right"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/back_grey" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/bar_right_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/txt_title"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="5dp"
+                    android:clickable="true"
+                    android:paddingBottom="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="保存"
+                    android:textColor="@drawable/selector_bar_text"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/view_container"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/linear_"
+                android:orientation="horizontal" />
+
+
+            <RelativeLayout
+                android:id="@+id/bar_left_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/selector_titlemenu"
+                android:clickable="true"
+                android:padding="5dp">
+
+                <RelativeLayout
+                    android:id="@+id/lay_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/image_left"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="6dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/back_grey" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txt_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="45dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="title"
+                android:textColor="@color/common_color_text_gray"
+                android:textSize="18dp" />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="#EEEEEE" />
+
+    </LinearLayout>
+
+    <data>
+
+    </data>
+</layout>

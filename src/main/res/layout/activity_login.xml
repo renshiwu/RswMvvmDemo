@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <RelativeLayout
+            android:id="@+id/relative_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/leoTitleBar"
+            android:layout_marginTop="79dp">
+
+            <EditText
+                android:id="@+id/edit_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/img_phone"
+                android:background="@null"
+                android:digits="@string/edit_digit"
+                android:hint="请输入账号"
+                android:inputType="text"
+                android:maxLength="11"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textColorHint="@color/blackdb"
+                android:textSize="@dimen/dp_20" />
+
+            <ImageView
+                android:id="@+id/img_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/zhanghao" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/relative_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_phone_line"
+            android:layout_marginTop="16dp">
+
+            <EditText
+                android:id="@+id/edit_passworld"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/img_password"
+                android:background="@null"
+                android:hint="请输入密码"
+                android:inputType="textPassword"
+                android:maxLength="17"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textColorHint="@color/blackdb"
+                android:textSize="@dimen/dp_20" />
+
+            <ImageView
+                android:id="@+id/img_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/mima" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/txt_phone_line"
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_below="@+id/relative_phone"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/blackdb" />
+
+
+        <TextView
+            android:id="@+id/txt_password_line"
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_below="@+id/relative_password"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/blackdb" />
+
+
+        <TextView
+            android:id="@+id/text_protrol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="18dp"
+            android:text="@string/login_xieyi"
+            android:textSize="12sp" />
+
+
+        <!--    #f57676-->
+        <com.rsw.mvvmdemo.customview.LeoTitleBar
+            android:id="@+id/leoTitleBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hl_background="@color/status_background"
+            app:hl_textTitle="玩安卓登录"
+            app:hl_textTitleColor="#fff" />
+
+        <com.lihang.smartloadview.SmartLoadingView
+            android:id="@+id/smartLoadingView"
+            android:layout_width="330dp"
+            android:layout_height="48dp"
+            android:layout_below="@+id/txt_password_line"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="58dp"
+            app:cannotclickBg="#bcb6b6"
+            app:cornerRaius="@dimen/dp_5"
+            app:errorBg="#EC5757"
+            app:errorStr="登陆失败"
+            app:normalBg="#4B8FF8"
+            app:scrollSpeed="500"
+            app:textColor="#fff"
+            app:textSize="@dimen/dp_20"
+            app:textStr="登录" />
+
+    </RelativeLayout>
+
+    <data>
+
+    </data>
+
+</layout>

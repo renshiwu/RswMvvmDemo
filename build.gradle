@@ -1,0 +1,144 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.rsw.mvvmdemo"
+        minSdkVersion 22
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    //签名 (需要签名文件)
+    signingConfigs {
+        key {
+            storeFile file("bdhrkeystore.jks")//签名文件
+            storePassword "123456"
+            keyAlias "bdhr"
+            keyPassword "123456"//签名密码
+        }
+    }
+
+    buildTypes {
+        release {
+            //混淆
+            minifyEnabled true
+            //移除无用的resource文件
+            shrinkResources true
+            //zipalign优化
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            //加上签名文件了需要放开
+            signingConfig signingConfigs.key
+        }
+
+        debug {
+            signingConfig signingConfigs.key
+        }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    //多渠道打包
+    flavorDimensions "mark" //相当于一个标记
+    productFlavors {
+        medical { dimension "mark" }
+    }
+
+
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [ATMAN_CHANNEL_VALUE: name]
+    }
+
+    //自定义打包时apk名字
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            // abc_渠道名_版本名.apk  还可以拼接其他app内容：variant.versionCode  variant.buildType.name
+//            outputFileName = "FastMedical_${variant.name}_${variant.versionName}_${new Date().format("yyyy-MM-dd")}.apk"
+            outputFileName = "Happy_Android_${variant.versionName}_${variant.buildType.name}_${new Date().format("yyyy-MM-dd_HH_mm")}.apk"
+
+        }
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //okhttp、retrofit、rxjava
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.7'
+
+    //解决RxJava内存泄漏，但在联网请求的时候使用了liveData，其实已经解决了。观察事件不能取消。
+    //同时在单独使用rxJava的时候还是要用。比如在启动页，还未去主页面，手动点击返回键的时候有效
+    implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    //Room的依赖引用
+    implementation 'androidx.room:room-runtime:2.0.0'
+    annotationProcessor 'androidx.room:room-compiler:2.0.0'
+
+    //Room配合RxJava使用
+    implementation 'androidx.room:room-rxjava2:2.0.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+
+    //广告banner
+    implementation 'com.youth.banner:banner:1.4.10'
+
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.github.lihangleo2:MoreAboutRecyclerView:1.0.1'
+    implementation 'com.github.lihangleo2:ShadowLayout:2.1.4'
+    implementation 'com.github.lihangleo2:SmartLoadingView:1.3.2'
+
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    //svg
+    implementation 'com.jaredrummler:animated-svg-view:1.0.5'
+    //沉浸式状态栏
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
+    //管理cookieJar的
+    implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
+    //eventbus
+    implementation 'org.greenrobot:eventbus:3.0.0'
+
+    api 'me.majiajie:pager-bottom-tab-strip:2.3.0X'
+    //刷新库
+    api 'com.scwang.smart:refresh-layout-kernel:2.0.1'      //核心必须依赖
+    api 'com.scwang.smart:refresh-header-classics:2.0.1'    //经典刷新头
+    api 'com.scwang.smart:refresh-header-radar:2.0.1'       //雷达刷新头
+    api 'com.scwang.smart:refresh-header-falsify:2.0.1'     //虚拟刷新头
+    api 'com.scwang.smart:refresh-header-material:2.0.1'    //谷歌刷新头
+    api 'com.scwang.smart:refresh-header-two-level:2.0.1'   //二级刷新头
+    api 'com.scwang.smart:refresh-footer-ball:2.0.1'        //球脉冲加载
+    api 'com.scwang.smart:refresh-footer-classics:2.0.1'    //经典加载
+
+    //banner
+    api 'com.github.zhpanvip:BannerViewPager:2.6.6'
+    api 'com.github.zhpanvip:viewpagerindicator:1.0.0'
+
+
+}

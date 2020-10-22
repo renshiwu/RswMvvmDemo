@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="red">#ff0000</color>
+    <color name="yellow">#FAE104</color>
+    <color name="status_background">#1EB0F1</color>
+    <color name="line">#EEEEEE</color>
+    <color name="text_pressed">#3EB8EF</color>
+    <color name="background_color">#117de9</color>
+
+    <color name="test_1">#479cea</color>
+    <color name="test_2">#f2faff</color>
+    <color name="blackdb">#dbdbdb</color>
+    <color name="homeyellow">#F4AA4E</color>
+
+
+    <color name="main_color_bar">#fafafa</color>
+    <color name="main_bottom_check_color">#ff000000</color>
+    <color name="main_bottom_default_color">#656565</color>
+    <color name="main_white_alpha_75">#BFFFFFFF</color>
+    <color name="common_color_small_text">#9d9f9f</color>
+    <color name="common_color_bar">#fafafa</color>
+    <color name="common_small_text1">#888888</color>
+    <color name="common_color_blue">#5790da</color>
+    <color name="common_color_text_gray">#656565</color>
+    <color name="common_colorWhite">#FFFFFF</color>
+    <color name="common_colorBlacklight">#363636</color>
+    <color name="c33">#333333</color>
+    <color name="c99">#999999</color>
+    <color name="darker_gray">#aaaaaa</color>
+
+    <color name="main_green">#99cc66</color><!--24cf5f  69c860-->
+
+    <color name="cC4CBD5">#C4CBD5</color>
+
+    <color name="colorBrightnessBG">#60000000</color>
+    <color name="colorDefaultText">#f4f4f4</color>
+    <color name="colorDialogEditBG">#dfdfdf</color>
+    <color name="colorDialogLine">#dfdfdf</color>
+    <color name="colorHKSBG">#dff3f0</color>
+    <color name="colorLine">#52ffffff</color>
+    <color name="colorName">#9b9b9b</color>
+    <color name="colorTextChoice">#52a7fe</color>
+    <color name="colorTopName">#cccccc</color>
+    <color name="c66">#666666</color>
+    <color name="ce9">#E9E9E9</color>
+</resources>

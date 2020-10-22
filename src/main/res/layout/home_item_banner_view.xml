@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+    </data>
+    <com.zhpan.bannerview.BannerViewPager
+        android:id="@+id/bv_top"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_margin="10dp"
+        app:bvp_indicator_checked_color="@color/main_green"
+        app:bvp_indicator_normal_color="@android:color/darker_gray"
+        app:bvp_page_margin="10dp"
+        app:bvp_reveal_width="20dp" />
+</layout>
